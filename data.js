@@ -92,6 +92,7 @@ var data = [
     {
         "id": 4,
         "title": "Meditation",
+        "category": "health",
         "flexibility": "flexible",
         "priority": 10,
         "recurrence": [
@@ -149,6 +150,7 @@ var data = [
     {
         "id": 8,
         "title": "Sheets Laundry",
+        "category": "chores",
         "flexibility": "flexible",
         "priority": 4,
         "recurrence": [
@@ -163,12 +165,12 @@ var data = [
             
             {
                 "id": 1,
-                "title": "Load Washer",
+                "title": "Wash Sheets",
                 "after": "hold"
             },
             {
                 "id": 2,
-                "title": "Load Dryer",
+                "title": "Dry Sheets",
                 "after": "hold"
             },
             {
@@ -180,6 +182,7 @@ var data = [
     {
         "id": 9,
         "title": "Clothes Laundry",
+        "category": "chores",
         "flexibility": "flexible",
         "priority": 6,
         "recurrence": [
@@ -194,12 +197,12 @@ var data = [
             
             {
                 "id": 1,
-                "title": "Load Washer",
+                "title": "Wash Clothes",
                 "after": "hold"
             },
             {
                 "id": 2,
-                "title": "Load Dryer",
+                "title": "Dry Clothes",
                 "after": "hold"
             },
             {
@@ -211,6 +214,7 @@ var data = [
     {
         "id": 10,
         "title": "Towels Laundry",
+        "category": "chores",
         "flexibility": "flexible",
         "priority": 6,
         "recurrence": [
@@ -225,12 +229,12 @@ var data = [
             
             {
                 "id": 1,
-                "title": "Load Washer",
+                "title": "Wash Towels",
                 "after": "hold"
             },
             {
                 "id": 2,
-                "title": "Load Dryer",
+                "title": "Dry Towels",
                 "after": "hold"
             },
             {
@@ -241,7 +245,22 @@ var data = [
     },
     {
         "id": 11,
-        "title": "Go For a Walk",
+        "title": "Replace Towels",
+        "category": "chores",
+        "flexibility": "flexible",
+        "priority": 6,
+        "recurrence": [
+            {
+                "every": 2,
+                "unit": "day",
+                "daysOfWeek": ["Sun", "Mon", "Tue", "Wed", "Thu", "Sat"]
+            }
+        ]
+    },
+    {
+        "id": 11,
+        "title": "Go for a Walk",
+        "category": "health",
         "flexibility": "flexible",
         "priority": 16,
         "recurrence": [
@@ -255,12 +274,13 @@ var data = [
     {
         "id": 12,
         "title": "Clean Floors",
+        "category": "cleaning",
         "flexibility": "flexible",
         "priority": 12,
         "recurrence": [
             {
                 "every": 2,
-                "unit": "weeks",
+                "unit": "week",
                 "daysOfWeek": ["Sun", "Sat"]
             }
         ],
@@ -286,8 +306,36 @@ var data = [
         "recurrence": [
             {
                 "every": 2,
-                "unit": "weeks",
+                "unit": "week",
                 "daysOfWeek": ["Sun", "Sat"]
+            }
+        ]
+    },
+    {
+        "id": 14,
+        "title": "Get Groceries",
+        "category": "chores",
+        "flexibility": "flexible",
+        "priority": 10,
+        "recurrence": [
+            {
+                "every": 1,
+                "unit": "week",
+                "daysOfWeek": ["Sun"]
+            }
+        ]
+    },
+    {
+        "id": 15,
+        "title": "Water Plants",
+        "category": "chores",
+        "flexibility": "flexible",
+        "priority": 10,
+        "recurrence": [
+            {
+                "every": 1,
+                "unit": "week",
+                "daysOfWeek": ["Sun"]
             }
         ]
     },

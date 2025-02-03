@@ -1,19 +1,106 @@
-class SettingsField {
-    input;
-    container;
+class MultiManager
+{
+    children = [];
+
+    
 }
 
-class TextField extends SettingsField {}
+class SettingsField 
+{
+    label;
+    input;
+    container;
 
-class TimeField extends SettingsField {}
+    constructor(container, label, input) 
+    {      
+        this.label = label;
+        this.input = input;
+        this.container = container;
+    }
 
-class RadioField extends SettingsField {
-    constructor(container, choices, value) {}
+    set(value) 
+    {
+        this.input.value = value;
+    }
+
+    get() 
+    {
+        return this.input.value;
+    }
+
+    
+}
+
+class TextField extends SettingsField 
+{
+    constructor(container, label, value) 
+    {
+        super(container, label, value);
+        this.input = document.createElement("input");
+        this.input.type = "text";
+        this.input.classList.add("task-settings text-field");
+        this.input.value = value;
+        this.container.appendChild(this.input);
+    }
+}
+
+class TimeField extends SettingsField 
+{
+    constructor(container, label, value) 
+    {
+        super(container, label, value);
+        this.input = document.createElement("input");
+        this.input.type = "time";
+        this.input.classList.add("task-settings time-field");
+        this.input.value = value;
+        this.container.appendChild(this.input);
+    }
+}
+
+class RadioField extends SettingsField 
+{
+    constructor(container, choices, value) {
+        super(container, label, value);
+        this.input = document.createElement("div");
+        this.input.classList.add("task-settings radio-field");
+        this.container.appendChild(this.input);
+
+        for (var choice in choices) {
+            var radio = document.createElement("input");
+            radio.type = "radio";
+            radio.name = label;
+            radio.value = choice;
+            radio.checked = value == choice;
+            this.input.appendChild(radio);
+            var radioLabel = document.createElement("label");
+            radioLabel.innerHTML = choice;
+            this.input.appendChild(radioLabel);
+        }
+    }
+}
+
+class FlexibilityField extends SettingsField 
+{
+    flexibilityInput;
+    startTimeInput;
+    priorityInput;
+
+    constructor(container, value) 
+    {
+        super(container, label, value);
+        
+        
+    }
 }
 
 class DaysOfWeekField extends SettingsField {}
 
-class FrequencyField extends SettingsField {}
+class FrequencyField extends SettingsField
+{
+
+}
+
+
 
 class TaskSettings {
     constructor(container, definition) {
@@ -23,10 +110,15 @@ class TaskSettings {
         this.duration = definition["duration"];
         this.flexibility = definition["flexibility"];
         this.priority = definition["priority"];
+
+        let titleField = new TextField(container, "Title", definition["title"]);
+        let descriptionField = new TextField(container, "Description", definition["description"]);
+
     }
 }
 
-class Statistics {
+class Statistics 
+{
     records = [];
 
     lastCompleted;
@@ -35,8 +127,8 @@ class Statistics {
     averageActiveTime;
     averageStartTime;
 
-    constructor(records) {
-        var count = 0;
+    constructor(records) 
+    {
         var totalActiveTime = 0;
         var totalDuration = 0;
         var totalStartTime = 0;
@@ -123,7 +215,8 @@ class Task {
 
     buildUI(container) {}
 
-    updateUI(container) {
+    updateUI(container) 
+    {
         var title = container.querySelector(".task-title");
         title.innerHTML = this.title;
 
